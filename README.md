@@ -6,12 +6,32 @@ If you care about data ownership and need a private free chat, Duck Chat has got
 
 _Have a private conversation in a crowded room without worrying about eavesdroppers._
 
+## Install 🦆
+
+### Mac
+
+```sh
+brew install dripverse/tools/duck
+```
+
+### Ubuntu/Debian based machines
+
+
+```sh
+sudo apt install duck
+```
+
+_Currently having some issues with installing from respective package manager repos._
+
+### [Download Binary from latest Release](https://github.com/DripVerse/duck/releases)
+
+## Usage:
+
+```sh
+duck
+```
+
 ![Duck Chat](./sample.png "Duck Chat")
-
-## [Install](https://github.com/DripVerse/duck/releases/download/v1.0/duck) 📦
-
-- [Github Releases](https://github.com/DripVerse/duck/releases) should have all the releases.
-If you want to build from source, read along...
 
 ### Features ✨
 - Complete Data Ownership
@@ -39,6 +59,7 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 
 - [ ] P2P CLI Chat.
 - [ ] Web link to install, setup and open chat.
+- [ ] Wallet/Account Support.
 - [ ] Add as Utility to DripVerse.
 - [ ] ...
 
