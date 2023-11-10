@@ -10,7 +10,7 @@ import (
 )
 
 // Represents the app version
-const appversion = "v1.0.0"
+const appversion = "v1.1.0"
 
 // A structure that represents the ChatRoom UI
 type UI struct {
@@ -285,25 +285,25 @@ func (ui *UI) handlecommand(cmd uicommand) {
 
 	// Unsupported command
 	default:
-		ui.Logs <- chatlog{logprefix: "badcmd", logmsg: fmt.Sprintf("unsupported command - %s", cmd.cmdtype)}
+		ui.Logs <- chatlog{logprefix: "🦆", logmsg: fmt.Sprintf("unsupported command - %s", cmd.cmdtype)}
 	}
 }
 
 // A method of UI that displays a message recieved from a peer
 func (ui *UI) display_chatmessage(msg chatmessage) {
-	prompt := fmt.Sprintf("[green]<%s>:[-]", msg.SenderName)
+	prompt := fmt.Sprintf("[green] %s :[-]", msg.SenderName)
 	fmt.Fprintf(ui.messageBox, "%s %s\n", prompt, msg.Message)
 }
 
 // A method of UI that displays a message recieved from self
 func (ui *UI) display_selfmessage(msg string) {
-	prompt := fmt.Sprintf("[blue]<%s>:[-]", ui.UserName)
+	prompt := fmt.Sprintf("[blue] %s :[-]", ui.UserName)
 	fmt.Fprintf(ui.messageBox, "%s %s\n", prompt, msg)
 }
 
 // A method of UI that displays a log message
 func (ui *UI) display_logmessage(log chatlog) {
-	prompt := fmt.Sprintf("[yellow]<%s>:[-]", log.logprefix)
+	prompt := fmt.Sprintf("[yellow] %s :[-]", log.logprefix)
 	fmt.Fprintf(ui.messageBox, "%s %s\n", prompt, log.logmsg)
 }
 
