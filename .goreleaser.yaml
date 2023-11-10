@@ -51,7 +51,7 @@ changelog:
       - "^docs:"
       - "^test:"
 
-project_name: duckchat
+project_name: duck
 
 brews:
   - homepage: 'https://github.com/dripverse/duck'
@@ -62,4 +62,4 @@ brews:
       email: support@dripverse.org
     tap:
       owner: DripVerse
-      name: duckchat
+      name: duck
