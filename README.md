@@ -44,3 +44,11 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 
 _[Have a request for features or add-ons?](https://github.com/DripVerse/duck/issues)_
 
+### Devices Tested:
+
+| Device Type | OS | Status |
+| --- | --- | --- |
+| Desktop | Mac Os 14 Sonoma | ✅ |
+| Desktop | Linux PopOS | ✅ |
+
+_Desktop here is used as a synonymous term for laptops, desktops, Macs and PCs._

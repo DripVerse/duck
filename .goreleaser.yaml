@@ -61,6 +61,6 @@ brews:
     commit_author:
       name: DripVerse
       email: support@dripverse.org
-    tap:
-      owner: dripverse
+    repository:
+      owner: DripVerse
       name: homebrew-tools
