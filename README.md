@@ -34,13 +34,13 @@ duck
 ![Duck Chat](./sample.png "Duck Chat")
 
 ### Features ✨
-✔️ Complete Data Ownership
-✔️ Enhanced Privacy
-✔️ No single point of control
-✔️ No third party involvement
-✔️ Free Usage
-✔️ Open Source
-✔️ Lightweight
+- Complete Data Ownership
+- Enhanced Privacy
+- No single point of control
+- No third party involvement
+- Free Usage
+- Open Source
+- Lightweight
 
 ### Development 💻
 
