@@ -56,9 +56,6 @@ project_name: duck
 brews:
   - homepage: 'https://github.com/dripverse/duck'
     name: duck
-    alternative_names:
-      - duck@{{ .Version }}
-      - duck@{{ .Major }}
     description: 'P2P Chat'
     folder: Formula
     commit_author:
