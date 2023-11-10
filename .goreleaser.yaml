@@ -64,3 +64,4 @@ brews:
     repository:
       owner: DripVerse
       name: homebrew-tools
+      branch: main
