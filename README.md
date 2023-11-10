@@ -34,13 +34,13 @@ duck
 ![Duck Chat](./sample.png "Duck Chat")
 
 ### Features ✨
-- Complete Data Ownership
-- Enhanced Privacy
-- No single point of control
-- No third party involvement
-- Free Usage
-- Open Source
-- Lightweight
+✔️ Complete Data Ownership
+✔️ Enhanced Privacy
+✔️ No single point of control
+✔️ No third party involvement
+✔️ Free Usage
+✔️ Open Source
+✔️ Lightweight
 
 ### Development 💻
 
@@ -57,7 +57,7 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 
 ## Roadmap 🚀
 
-- [ ] P2P CLI Chat.
+- [x] P2P CLI Chat.
 - [ ] Web link to install, setup and open chat.
 - [ ] Wallet/Account Support.
 - [ ] Add as Utility to DripVerse.
