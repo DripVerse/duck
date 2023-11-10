@@ -25,7 +25,7 @@ type UI struct {
 	CmdInputs chan uicommand
 
 	// Represents the UI element with the list of peers
-	peerBox *tview.TextView
+	pBox *tview.TextView
 	// Represents the UI element with the chat messages and logs
 	messageBox *tview.TextView
 	// Represents the UI element for the input field
@@ -90,9 +90,9 @@ func NewUI(cr *ChatRoom) *UI {
 		SetBorderPadding(0, 0, 1, 0)
 
 	// Create peer ID box
-	peerbox := tview.NewTextView()
+	pbox := tview.NewTextView()
 
-	peerbox.
+	pbox.
 		SetBorder(true).
 		SetBorderColor(tcell.ColorGreen).
 		SetTitle("Anons 👋").
@@ -155,7 +155,7 @@ func NewUI(cr *ChatRoom) *UI {
 		AddItem(titlebox, 3, 1, false).
 		AddItem(tview.NewFlex().SetDirection(tview.FlexColumn).
 			AddItem(messagebox, 0, 1, false).
-			AddItem(peerbox, 20, 1, false),
+			AddItem(pbox, 20, 1, false),
 			0, 8, false).
 		AddItem(input, 3, 1, true).
 		AddItem(usage, 3, 1, false)
@@ -167,7 +167,7 @@ func NewUI(cr *ChatRoom) *UI {
 	return &UI{
 		ChatRoom:    cr,
 		TerminalApp: app,
-		peerBox:     peerbox,
+		pBox:        pbox,
 		messageBox:  messagebox,
 		inputBox:    input,
 		MsgInputs:   msgchan,
@@ -241,47 +241,47 @@ func (ui *UI) handlecommand(cmd uicommand) {
 		// Clear the UI message box
 		ui.messageBox.Clear()
 
-	// Check for the room change command
-	case "\\room":
-		if cmd.cmdarg == "" {
-			ui.Logs <- chatlog{logprefix: "badcmd", logmsg: "missing room name for command"}
-		} else {
-			ui.Logs <- chatlog{logprefix: "roomchange", logmsg: fmt.Sprintf("joining new room '%s'", cmd.cmdarg)}
+	// // Check for the room change command
+	// case "\\room":
+	// 	if cmd.cmdarg == "" {
+	// 		ui.Logs <- chatlog{logprefix: "badcmd", logmsg: "missing room name for command"}
+	// 	} else {
+	// 		ui.Logs <- chatlog{logprefix: "roomchange", logmsg: fmt.Sprintf("joining new room '%s'", cmd.cmdarg)}
 
-			// Create a reference to the current chatroom
-			oldchatroom := ui.ChatRoom
+	// 		// Create a reference to the current chatroom
+	// 		oldchatroom := ui.ChatRoom
 
-			// Create a new chatroom and join it
-			newchatroom, err := JoinChatRoom(ui.Host, ui.UserName, cmd.cmdarg)
-			if err != nil {
-				ui.Logs <- chatlog{logprefix: "jumperr", logmsg: fmt.Sprintf("could not change chat room - %s", err)}
-				return
-			}
+	// 		// Create a new chatroom and join it
+	// 		newchatroom, err := JoinChatRoom(ui.Host, ui.UserName, cmd.cmdarg)
+	// 		if err != nil {
+	// 			ui.Logs <- chatlog{logprefix: "jumperr", logmsg: fmt.Sprintf("could not change chat room - %s", err)}
+	// 			return
+	// 		}
 
-			// Assign the new chat room to UI
-			ui.ChatRoom = newchatroom
-			// Sleep for a second to give time for the queues to adapt
-			time.Sleep(time.Second * 1)
+	// 		// Assign the new chat room to UI
+	// 		ui.ChatRoom = newchatroom
+	// 		// Sleep for a second to give time for the queues to adapt
+	// 		time.Sleep(time.Second * 1)
 
-			// Exit the old chatroom and pause for two seconds
-			oldchatroom.Exit()
+	// 		// Exit the old chatroom and pause for two seconds
+	// 		oldchatroom.Exit()
 
-			// Clear the UI message box
-			ui.messageBox.Clear()
-			// Update the chat room UI element
-			ui.messageBox.SetTitle(fmt.Sprintf("ChatRoom-%s", ui.ChatRoom.RoomName))
-		}
+	// 		// Clear the UI message box
+	// 		ui.messageBox.Clear()
+	// 		// Update the chat room UI element
+	// 		ui.messageBox.SetTitle(fmt.Sprintf("ChatRoom-%s", ui.ChatRoom.RoomName))
+	// 	}
 
-	// Check for the user change command
-	case "\\user":
-		if cmd.cmdarg == "" {
-			ui.Logs <- chatlog{logprefix: "badcmd", logmsg: "missing user name for command"}
-		} else {
-			// Update the chat user name
-			ui.UpdateUser(cmd.cmdarg)
-			// Update the chat room UI element
-			ui.inputBox.SetLabel(ui.UserName + " > ")
-		}
+	// // Check for the user change command
+	// case "\\user":
+	// 	if cmd.cmdarg == "" {
+	// 		ui.Logs <- chatlog{logprefix: "badcmd", logmsg: "missing user name for command"}
+	// 	} else {
+	// 		// Update the chat user name
+	// 		ui.UpdateUser(cmd.cmdarg)
+	// 		// Update the chat room UI element
+	// 		ui.inputBox.SetLabel(ui.UserName + " > ")
+	// 	}
 
 	// Unsupported command
 	default:
@@ -314,11 +314,11 @@ func (ui *UI) syncpeerbox() {
 
 	// Clear() is not a threadsafe call
 	// So we acquire the thread lock on it
-	ui.peerBox.Lock()
+	ui.pBox.Lock()
 	// Clear the box
-	ui.peerBox.Clear()
+	ui.pBox.Clear()
 	// Release the lock
-	ui.peerBox.Unlock()
+	ui.pBox.Unlock()
 
 	// Iterate over the list of peers
 	for _, p := range peers {
@@ -327,7 +327,7 @@ func (ui *UI) syncpeerbox() {
 		// Shorten the peer ID
 		peerid = peerid[len(peerid)-8:]
 		// Add the peer ID to the peer box
-		fmt.Fprintln(ui.peerBox, peerid)
+		fmt.Fprintln(ui.pBox, peerid)
 	}
 
 	// Refresh the UI

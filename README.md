@@ -10,7 +10,7 @@ _Have a private conversation in a crowded room without worrying about eavesdropp
 
 ## [Install](https://github.com/DripVerse/duck/releases/download/v1.0/duck) 📦
 
-[Github Releases](https://github.com/DripVerse/duck/releases) should have all the releases.
+- [Github Releases](https://github.com/DripVerse/duck/releases) should have all the releases.
 If you want to build from source, read along...
 
 ### Features ✨
