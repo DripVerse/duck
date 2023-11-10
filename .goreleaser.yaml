@@ -55,11 +55,15 @@ project_name: duck
 
 brews:
   - homepage: 'https://github.com/dripverse/duck'
+    name: duck
+    alternative_names:
+      - duck@{{ .Version }}
+      - duck@{{ .Major }}
     description: 'P2P Chat'
     folder: Formula
     commit_author:
       name: DripVerse
       email: support@dripverse.org
     tap:
-      owner: DripVerse
-      name: duck
+      owner: dripverse
+      name: homebrew-tools
