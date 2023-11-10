@@ -11,8 +11,8 @@ import (
 
 // Represents the default fallback room and user names
 // if they aren't provided when the app is started
-const defaultuser = "anon"
-const defaultroom = "lobby"
+const defaultuser = "🥷"
+const defaultroom = "🏠"
 
 // A structure that represents a PubSub Chat Room
 type ChatRoom struct {
