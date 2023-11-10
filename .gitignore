@@ -20,3 +20,5 @@
 # Ignore Build Binary Directories
 /bin
 duck
+
+dist/
