@@ -1,6 +1,6 @@
 # DUCK 🦆
 
-### _Simpliflying Decentralised Communication_
+### _Simplifying Decentralised Communication_
 
 If you care about data ownership and need a private free chat, Duck Chat has got your back.
 
@@ -8,7 +8,12 @@ _Have a private conversation in a crowded room without worrying about eavesdropp
 
 ![Duck Chat](./sample.png "Duck Chat")
 
-### Features:
+## [Install](https://github.com/DripVerse/duck/releases/download/v1.0/duck)
+
+[Github Releases](https://github.com/DripVerse/duck/releases) should have all the releases.
+If you want to build from source, read along...
+
+### Features ✨
 - Complete Data Ownership
 - Enhanced Privacy
 - No single point of control
@@ -17,7 +22,7 @@ _Have a private conversation in a crowded room without worrying about eavesdropp
 - Open Source
 - Lightweight
 
-### Development
+### Development 💻
 
 `go install` && `go run main.go`
 
@@ -30,7 +35,7 @@ _Have a private conversation in a crowded room without worrying about eavesdropp
 Inspired by Peerchat on Kademlia DHT which is a terminal-based P2P chat application using libp2p and the IPFS network for peer discovery and routing.
 It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a more fully featured host. The other components of the libp2p such as TLS encryption, peer active discovery, YAMUX stream multiplexing are integrated as well.
 
-## Roadmap
+## Roadmap 🚀
 
 - [ ] P2P CLI Chat.
 - [ ] Web link to install, setup and open chat.
