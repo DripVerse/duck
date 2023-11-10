@@ -25,6 +25,9 @@ _Currently having some issues with installing from respective package manager re
 
 ### [Download Binary from latest Release](https://github.com/DripVerse/duck/releases)
 
+## Stable Releases:
+- [v1.1.0](https://github.com/DripVerse/duck/releases/tag/v1.1.0)
+
 ## Usage:
 
 ```sh
