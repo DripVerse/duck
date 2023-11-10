@@ -50,7 +50,7 @@ func NewUI(cr *ChatRoom) *UI {
 
 	// Create a title box
 	titlebox := tview.NewTextView().
-		SetText(fmt.Sprintf("Duck. A P2P Chat Application. %s", appversion)).
+		SetText(fmt.Sprintf("Duck 🦆 Decentralised Chat. %s", appversion)).
 		SetTextColor(tcell.ColorWhite).
 		SetTextAlign(tview.AlignCenter)
 
@@ -68,19 +68,23 @@ func NewUI(cr *ChatRoom) *UI {
 	messagebox.
 		SetBorder(true).
 		SetBorderColor(tcell.ColorGreen).
-		SetTitle(fmt.Sprintf("ChatRoom-%s", cr.RoomName)).
+		SetTitle(fmt.Sprintf("💬 %s", cr.RoomName)).
 		SetTitleAlign(tview.AlignLeft).
 		SetTitleColor(tcell.ColorWhite)
 
 	// Create a usage instruction box
+	// usage := tview.NewTextView().
+	// 	SetDynamicColors(true).
+	// 	SetText(`[red]\q[green] - quit the chat | [red]\room <roomname>[green] - change chat room | [red]\user <username>[green] - change user name | [red]\clear[green] - clear the chat`)
+
 	usage := tview.NewTextView().
 		SetDynamicColors(true).
-		SetText(`[red]\q[green] - quit the chat | [red]\room <roomname>[green] - change chat room | [red]\user <username>[green] - change user name | [red]\clear[green] - clear the chat`)
+		SetText(`[red]\q[green] - quit the chat | [red]\clear[green] - clear the chat`)
 
 	usage.
 		SetBorder(true).
 		SetBorderColor(tcell.ColorGreen).
-		SetTitle("Usage").
+		SetTitle("Help").
 		SetTitleAlign(tview.AlignLeft).
 		SetTitleColor(tcell.ColorWhite).
 		SetBorderPadding(0, 0, 1, 0)
@@ -91,7 +95,7 @@ func NewUI(cr *ChatRoom) *UI {
 	peerbox.
 		SetBorder(true).
 		SetBorderColor(tcell.ColorGreen).
-		SetTitle("Peers").
+		SetTitle("Anons 👋").
 		SetTitleAlign(tview.AlignLeft).
 		SetTitleColor(tcell.ColorWhite)
 
@@ -104,7 +108,7 @@ func NewUI(cr *ChatRoom) *UI {
 
 	input.SetBorder(true).
 		SetBorderColor(tcell.ColorGreen).
-		SetTitle("Input").
+		SetTitle("Message").
 		SetTitleAlign(tview.AlignLeft).
 		SetTitleColor(tcell.ColorWhite).
 		SetBorderPadding(0, 0, 1, 0)

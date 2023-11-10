@@ -131,24 +131,24 @@ func (p2p *P2P) AnnounceConnect() {
 	// Generate the Service CID
 	cidvalue := generateCID(service)
 	// Trace log
-	logrus.Traceln("Generated the Service CID.")
+	logrus.Traceln("Generated the CID.")
 
 	// Announce that this host can provide the service CID
 	err := p2p.KadDHT.Provide(p2p.Ctx, cidvalue, true)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{
 			"error": err.Error(),
-		}).Fatalln("Failed to Announce Service CID!")
+		}).Fatalln("Failed to Announce CID!")
 	}
 	// Debug log
-	logrus.Debugln("Announced the Duck Service.")
+	logrus.Debugln("Announced the Duck Chat.")
 	// Sleep to give time for the advertisment to propogate
 	time.Sleep(time.Second * 5)
 
 	// Find the other providers for the service CID
 	peerchan := p2p.KadDHT.FindProvidersAsync(p2p.Ctx, cidvalue, 0)
 	// Trace log
-	logrus.Traceln("Discovered Duck Service Peers.")
+	logrus.Traceln("Discovered Duck Service Anons.")
 
 	// Connect to peers as they are discovered
 	go handlePeerDiscovery(p2p.Host, peerchan)

@@ -16,7 +16,7 @@ W E L C O M E  T O
     __    
 ___( o)>  
 \ <_. )   
- '---'    Chat 
+ '---'    
 `
 
 func init() {
@@ -62,13 +62,13 @@ func main() {
 
 	// Display the welcome figlet
 	fmt.Printf(figlet)
-	fmt.Println("Duck Chat is starting...")
-	fmt.Println("This may take upto 30 seconds.")
+	fmt.Println("Initiating Duck Chat...")
+	fmt.Println("(This may take upto 30 seconds.)")
 	fmt.Println()
 
 	// Create a new P2PHost
 	p2phost := src.NewP2P()
-	logrus.Infoln("Completed P2P Setup")
+	logrus.Infoln("Preparing system...")
 
 	// Connect to peers with the chosen discovery method
 	switch *discovery {
@@ -79,11 +79,11 @@ func main() {
 	default:
 		p2phost.AdvertiseConnect()
 	}
-	logrus.Infoln("Connected to Peers")
+	logrus.Infoln("Finding Anons...")
 
 	// Join the chat room
 	chatapp, _ := src.JoinChatRoom(p2phost, *username, *chatroom)
-	logrus.Infof("Joined the '%s' chatroom as '%s'", chatapp.RoomName, chatapp.UserName)
+	logrus.Infof("Joining '%s' as '%s'", chatapp.RoomName, chatapp.UserName)
 
 	// Wait for network setup to complete
 	time.Sleep(time.Second * 5)
