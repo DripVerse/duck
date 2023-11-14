@@ -1,4 +1,4 @@
-# DUCK 🦆
+# [DUCK 🦆](https://duck.dripverse.org)
 
 ### _Simplifying Decentralised Communication_
 
@@ -34,7 +34,7 @@ _Currently having some issues with installing from respective package manager re
 duck
 ```
 
-![Duck Chat](./sample.png "Duck Chat")
+![Duck Chat](https://duck.dripverse.org/images/about/cli.png "Duck Chat")
 
 ### Features ✨
 - Complete Data Ownership
@@ -61,7 +61,7 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 ## Roadmap 🚀
 
 - [x] P2P CLI Chat.
-- [ ] Web link to install, setup and open chat.
+- [ ] Web UI.
 - [ ] Wallet/Account Support.
 - [ ] Add as Utility to DripVerse.
 - [ ] ...
