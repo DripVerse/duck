@@ -8,11 +8,10 @@ import (
 
 	"github.com/dripverse/duck/src"
 	"github.com/sirupsen/logrus"
+	"github.com/spf13/viper"
 )
 
 const figlet = `
-
-W E L C O M E  T O
     __    
 ___( o)>  
 \ <_. )   
@@ -29,6 +28,9 @@ func init() {
 
 	// Log to stdout
 	logrus.SetOutput(os.Stdout)
+
+	// Verify Config Setup
+	VerifyConfig()
 }
 
 func main() {
@@ -92,4 +94,29 @@ func main() {
 	ui := src.NewUI(chatapp)
 	// Start the UI system
 	ui.Run()
+}
+
+func VerifyConfig() {
+	viper.SetConfigName(".drip")
+	viper.SetConfigType("env")
+
+	viper.AddConfigPath("$HOME")
+	viper.AddConfigPath(".")
+
+	err := viper.ReadInConfig() // Find and read the config file
+	if err != nil {             // Handle errors reading the config file
+		if _, ok := err.(viper.ConfigFileNotFoundError); ok {
+			// Config file not found; ignore error if desired
+			logrus.Infoln("Welcome to DUCK 🦆\nLet's set it up for you 👋")
+		} else {
+			// Config file was found but another error was produced
+			logrus.Errorln("fatal error config file: %w", err)
+			panic("Error reading config file. Are you sure it is setup?")
+		}
+	}
+
+	if len(viper.GetString("ACCOUNT_KEY_EVM")) == 0 {
+		panic("No Wallet Key Found! Kindly update your key before continuing...")
+	}
+	logrus.Infoln("✅ Config OK")
 }

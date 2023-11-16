@@ -18,5 +18,6 @@ require (
 	github.com/multiformats/go-multiaddr v0.3.2
 	github.com/multiformats/go-multihash v0.0.15
 	github.com/rivo/tview v0.0.0-20210608105643-d4fb0348227b
-	github.com/sirupsen/logrus v1.2.0
+	github.com/sirupsen/logrus v1.6.0
+	github.com/spf13/viper v1.17.0 // indirect
 )
