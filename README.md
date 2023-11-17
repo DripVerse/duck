@@ -87,7 +87,8 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 - [x] P2P CLI Chat.
 - [ ] Web UI.
 - [x] Config Management
-- [ ] Wallet/Account Support.
+- [x] Account Support.
+- [ ] Wallet Support.
 - [ ] Add as Utility to DripVerse.
 - [ ] ...
 
