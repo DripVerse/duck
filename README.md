@@ -80,12 +80,13 @@ It uses a Kademlia DHT from libp2p for peer discovery and routing and supports a
 - [Logrus](https://github.com/sirupsen/logrus) for Logging.
 - [libp2p](https://libp2p.io/) for p2p networking.
 - [Viper](https://github.com/spf13/viper) for config management.
+- [Geth Ethereum Go Client](https://geth.ethereum.org/) for using key and evm functions.
 
 ## Roadmap 🚀
 
 - [x] P2P CLI Chat.
 - [ ] Web UI.
-- [ ] Config Management
+- [x] Config Management
 - [ ] Wallet/Account Support.
 - [ ] Add as Utility to DripVerse.
 - [ ] ...
