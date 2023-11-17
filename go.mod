@@ -3,6 +3,7 @@ module github.com/dripverse/duck
 go 1.16
 
 require (
+	github.com/ethereum/go-ethereum v1.13.5
 	github.com/gdamore/tcell/v2 v2.3.3
 	github.com/ipfs/go-cid v0.0.7
 	github.com/libp2p/go-libp2p v0.14.2
@@ -18,6 +19,6 @@ require (
 	github.com/multiformats/go-multiaddr v0.3.2
 	github.com/multiformats/go-multihash v0.0.15
 	github.com/rivo/tview v0.0.0-20210608105643-d4fb0348227b
-	github.com/sirupsen/logrus v1.6.0
+	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/viper v1.17.0
 )
