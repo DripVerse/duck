@@ -21,3 +21,12 @@ func GetAddress(key string) string {
 	address := crypto.PubkeyToAddress(*publicKeyECDSA)
 	return address.Hex()
 }
+
+func TrimAndAddEllipsis(input string, maxLength int) string {
+	if len(input) <= maxLength {
+		return input
+	}
+
+	trimmedString := input[:maxLength] + "..."
+	return trimmedString
+}

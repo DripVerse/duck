@@ -101,7 +101,7 @@ func NewUI(cr *ChatRoom) *UI {
 
 	// Create a text input box
 	input := tview.NewInputField().
-		SetLabel(cr.UserName + " > ").
+		SetLabel(TrimAndAddEllipsis(cr.UserName, 10) + " > ").
 		SetLabelColor(tcell.ColorGreen).
 		SetFieldWidth(0).
 		SetFieldBackgroundColor(tcell.ColorBlack)
@@ -297,7 +297,7 @@ func (ui *UI) display_chatmessage(msg chatmessage) {
 
 // A method of UI that displays a message recieved from self
 func (ui *UI) display_selfmessage(msg string) {
-	prompt := fmt.Sprintf("[blue] %s :[-]", ui.UserName)
+	prompt := fmt.Sprintf("[blue] %s :[-]", TrimAndAddEllipsis(ui.UserName, 10))
 	fmt.Fprintf(ui.messageBox, "%s %s\n", prompt, msg)
 }
 
